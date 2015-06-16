@@ -1,0 +1,62 @@
+/* 
+    Created on : 26.03.2015 13:00:00
+    Author     : Philipp Jauss
+*/
+
+body {
+    color: white;
+    background-color: black;
+}
+
+figure {
+    margin: 0px;
+    background-color: rgb(24, 24, 24);
+}
+
+#messages {
+    list-style-type: none;
+}
+#messages > li {
+    margin-top: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 0px;
+    padding-right: 0px;    
+}
+
+
+.row {
+    max-width: 100%;
+}
+
+.hidediv {
+    display: none;
+}
+
+.showdiv {
+    display: inline;
+}
+
+.statusgreen {
+    background-color: green;
+}
+
+.statusred {
+    background-color: red;
+}
+
+
+
+@media only screen {
+ 
+}
+
+@media only screen and (min-width: 40.063em){
+    #messages > li {
+        padding-left: 10px;
+        padding-right: 10px;        
+    }
+}
+
+
+

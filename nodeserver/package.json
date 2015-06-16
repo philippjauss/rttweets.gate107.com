@@ -1,0 +1,11 @@
+{
+  "name": "RealtimeTweetReader",
+  "version": "1.0.0",
+  "description": "Real time tweet reader",
+  "dependencies": {
+    "socket.io": "latest",
+    "twitter-stream-channels": "latest"
+  },
+  "author": "Philipp Jauss"
+}
+
