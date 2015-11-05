@@ -33,8 +33,10 @@
 
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-        <li id="home"><a href="#Home">Home</a></li>
-        <li id="about"><a href="#About">About</a></li>
+          <li id="home"><a href="#Home">Home</a></li>
+          <li id="about"><a href="#About">About</a></li>
+          <li id="dev"><a href="http://www.rttweets.gate107.com/dev.html">dev msgs</a></li>
+          <li id="twd"><a href="http://www.rttweets.gate107.com/twdbeirtl2.html">TWDbeiRTL2</a></li>
       </ul>
     </aside>
 
@@ -124,7 +126,7 @@
                 $('#status').addClass("statusred");
             }); 
 
-            socket.on('tweet', function (data) {
+            socket.on('wow', function (data) {
                 $('<li><figure><a href="'+data.tweetlink+'" target="_blank"><img src="'+data.picture+'" alt="wow selfie picture from twitter" ><figcaption>@'+data.user+':'+data.tweettext+'</figcaption></a></figure></li>').hide().prependTo('#messages').fadeIn(3000); 
             
             //console.log(data);

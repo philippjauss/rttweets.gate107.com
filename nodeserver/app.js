@@ -9,10 +9,11 @@ var client = new TwitterStreamChannels(credentials);
 var connected = false;
 
 var channels = {
-    "languages" : ['javascript','php','java','python','perl'],
-    "js-frameworks" : ['angularjs','jquery','backbone','emberjs'],
-    "web" : ['javascript','nodejs','html5','css','angularjs'],
-    "wow" : ['warcraft','wowselfie']
+
+    "dev" : ['javascript','nodejs','jquery','backbone','emberjs','meteorjs','html5','css','angularjs'],
+    "wow" : ['warcraft','wowselfie'],
+    "siroop" : ['siroop','siropmeeting'],
+    "twd" : ['TWDbeiRTL2']
 };
 
 var stream = client.streamChannels({track:channels});
@@ -20,7 +21,8 @@ var stream = client.streamChannels({track:channels});
 var count = 0;
 var tweetdata;
 var tweeturl;
-var isRetweet;
+var isRetweeted;
+var imagelink;
 
 
 
@@ -30,7 +32,7 @@ stream.on('connect', function() {
 
 stream.on('connected', function() {
   if(connected === false){
-    console.log('> twitter emit : connected - listening to channel "wow"');
+    console.log('> twitter emit : client connected ');
     connected = true;
   }
 });
@@ -83,10 +85,79 @@ stream.on('channels/wow',function(tweet){
      //console.log('Here comes the url to the picture');
      //console.log(tweet.entities.media[0].media_url);
      //console.log(tweetdata);
-     //io.emit('tweet', tweet.entities.media[0].media_url);
-     io.emit('tweet',tweetdata);
+
+     io.emit('wow',tweetdata);
     }
-    count++;
+    /*count++;*/
+});
+
+stream.on('channels/siroop',function(tweet){
+    if (tweet.entities.media){
+        imagelink = tweet.entities.media[0].media_url
+    }else{
+        imagelink = 'http://www.rttweets.gate107.com/img/twitterlogo.png';
+
+    }
+
+    tweeturl="https://www.twitter.com/"+tweet.user.screen_name+"/status/"+tweet.id_str;
+    tweetdata = {
+        "picture":imagelink,
+        "user": tweet.user.screen_name,
+        "tweettext": tweet.text,
+        "retweeted": isRetweeted,
+        "tweetlink": tweeturl
+    };
+
+
+    io.emit('siroop',tweetdata);
+
+
+});
+
+
+stream.on('channels/dev',function(tweet){
+    if (tweet.entities.media){
+        imagelink = tweet.entities.media[0].media_url
+    }else{
+        imagelink = 'http://www.rttweets.gate107.com/img/twitterlogo.png';
+
+    }
+
+    tweeturl="https://www.twitter.com/"+tweet.user.screen_name+"/status/"+tweet.id_str;
+    tweetdata = {
+        "picture":imagelink,
+        "user": tweet.user.screen_name,
+        "tweettext": tweet.text,
+        "retweeted": isRetweeted,
+        "tweetlink": tweeturl
+    };
+
+
+    io.emit('dev',tweetdata);
+
+
+});
+
+stream.on('channels/twd',function(tweet){
+    if (tweet.entities.media){
+        imagelink = tweet.entities.media[0].media_url
+    }else{
+        imagelink = 'http://www.rttweets.gate107.com/img/twitterlogo.png';
+
+    }
+
+    tweeturl="https://www.twitter.com/"+tweet.user.screen_name+"/status/"+tweet.id_str;
+    tweetdata = {
+        "picture":imagelink,
+        "user": tweet.user.screen_name,
+        "tweettext": tweet.text,
+        "retweeted": isRetweeted,
+        "tweetlink": tweeturl
+    };
+
+
+    io.emit('twd',tweetdata);
+
 });
 
 /*setTimeout(function() {
