@@ -13,7 +13,8 @@ var channels = {
     "dev" : ['javascript','nodejs','jquery','backbone','emberjs','meteorjs','html5','css','angularjs'],
     "wow" : ['warcraft','wowselfie'],
     "siroop" : ['siroop','siropmeeting'],
-    "twd" : ['TWDbeiRTL2']
+    "twd" : ['TWDbeiRTL2'],
+    "traumfraugesucht": ['Traumfraugesucht'],
 };
 
 var stream = client.streamChannels({track:channels});
@@ -157,6 +158,28 @@ stream.on('channels/twd',function(tweet){
 
 
     io.emit('twd',tweetdata);
+
+});
+
+stream.on('channels/traumfraugesucht',function(tweet){
+    if (tweet.entities.media){
+        imagelink = tweet.entities.media[0].media_url
+    }else{
+        imagelink = 'http://www.rttweets.gate107.com/img/twitterlogo.png';
+
+    }
+
+    tweeturl="https://www.twitter.com/"+tweet.user.screen_name+"/status/"+tweet.id_str;
+    tweetdata = {
+        "picture":imagelink,
+        "user": tweet.user.screen_name,
+        "tweettext": tweet.text,
+        "retweeted": isRetweeted,
+        "tweetlink": tweeturl
+    };
+
+
+    io.emit('traumfraugesucht',tweetdata);
 
 });
 

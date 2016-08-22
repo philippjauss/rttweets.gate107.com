@@ -3,7 +3,7 @@
 <html class="no-js" lang="de">
 
 <head>
-    <title>Live twitter WoW Screenis</title>
+    <title>Live twitter traumfraugesucht messages</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css">
@@ -22,7 +22,7 @@
                 </section>
 
                 <section class="middle tab-bar-section">
-                    <h1 class="title"><a href="http://www.rttweets.gate107.com">Twitter WoW Screenis</a></h1>
+                    <h1 class="title"><a href="http://www.rttweets.gate107.com/twdbeirtl2.html">Twitter traumfraugesucht messages</a></h1>
                 </section>
                 <section id="status" class="right-small statusgreen">
                     <div id="reload">
@@ -59,8 +59,7 @@
                     <div id="aboutpage" class="small-12 large-12 columns hidediv">
                         <p>
                             Das ist nur ein einfacher Prototyp mit node.js und twitter unter Einbindung des twitter-stream-channels moduls (<a href="https://github.com/topheman/twitter-stream-channels">https://github.com/topheman/twitter-stream-channels</a>)
-                            um damit World of Warcraft screenis in Echtzeit von Twitter anzuzeigen. Als selektion für die tweets, werden alle mit dem Hashtag "warcraft" und "wowselfies" versehenen tweets ausgewählt, die ein Bild enthalten. Das Pendent
-                            im Browser ist <a href="https://twitter.com/search?f=realtime&q=%23warcraft%20OR%20%23wowselfie&src=typd" target="_blank">mit diesem Link zu sehen.</a>
+                            um damit ein paar toppics in Echtzeit von Twitter anzuzeigen.
                         </p>
                         <p>
                             Warum das ganze ? Aus Spass an der Freud, Interesse an node.js und der Anbindung von Twitter als "live Datenquelle".
@@ -128,8 +127,8 @@
             $('#status').addClass("statusred");
         });
 
-        socket.on('wow', function(data) {
-            $('<li><figure><a href="' + data.tweetlink + '" target="_blank"><img src="' + data.picture + '" alt="wow selfie picture from twitter" ><figcaption>@' + data.user + ':' + data.tweettext + '</figcaption></a></figure></li>').hide().prependTo('#messages').fadeIn(3000);
+        socket.on('traumfraugesucht', function(data) {
+            $('<li><figure><a href="' + data.tweetlink + '" target="_blank"><img src="' + data.picture + '" ><figcaption>@' + data.user + ':' + data.tweettext + '</figcaption></a></figure></li>').hide().prependTo('#messages').fadeIn(3000);
 
             //console.log(data);
 

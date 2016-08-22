@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html class="no-js" lang="de">
+
 <head>
     <title>Live twitter twdbeirtl2 messages</title>
     <meta charset="UTF-8">
@@ -10,66 +11,69 @@
     <link rel="stylesheet" href="css/site.css">
     <script src="js/vendor/modernizr.js"></script>
 </head>
+
 <body>
 
-<div class="off-canvas-wrap" data-offcanvas>
-    <div class="inner-wrap">
-        <nav class="tab-bar">
-            <section class="left-small">
-                <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-            </section>
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <nav class="tab-bar">
+                <section class="left-small">
+                    <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
 
-            <section class="middle tab-bar-section">
-                <h1 class="title"><a href="http://www.rttweets.gate107.com/twdbeirtl2.html">Twitter TWDbeiRTL2 messages</a></h1>
-            </section>
-            <section id="status" class="right-small statusgreen">
-                <div id="reload">
-                    <!--<img src="img/reload.png" alt="reload page">-->
+                <section class="middle tab-bar-section">
+                    <h1 class="title"><a href="http://www.rttweets.gate107.com/twdbeirtl2.html">Twitter TWDbeiRTL2 messages</a></h1>
+                </section>
+                <section id="status" class="right-small statusgreen">
+                    <div id="reload">
+                        <!--<img src="img/reload.png" alt="reload page">-->
+                    </div>
+                </section>
+
+
+            </nav>
+
+            <aside class="left-off-canvas-menu">
+                <ul class="off-canvas-list">
+                    <li id="home"><a href="#Home">Home</a></li>
+                    <li id="about"><a href="#About">About</a></li>
+                    <li id="wow"><a href="http://www.rttweets.gate107.com/index.html">wow msgs</a></li>
+                    <li id="dev"><a href="http://www.rttweets.gate107.com/dev.html">dev msgs</a></li>
+                    <li id="siroop"><a href="http://www.rttweets.gate107.com/siroop.html">siroop</a></li>
+                    <li id="twd"><a href="http://www.rttweets.gate107.com/twdbeirtl2.html">TWDbeiRTL2</a></li>
+                    <li id="traumfraugesucht"><a href="http://www.rttweets.gate107.com/traumfraugesucht.html">Traumfraugesucht</a></li>
+                </ul>
+            </aside>
+
+            <section>
+
+
+
+                <!-- main content -->
+                <div class="row">
+                    <div id="homepage" class="small-12 large-12 columns">
+
+                        <ul id="messages" class="small-block-grid-1 medium-block-grid-2 large-block-grid-3"></ul>
+
+                    </div>
+                    <div id="aboutpage" class="small-12 large-12 columns hidediv">
+                        <p>
+                            Das ist nur ein einfacher Prototyp mit node.js und twitter unter Einbindung des twitter-stream-channels moduls (<a href="https://github.com/topheman/twitter-stream-channels">https://github.com/topheman/twitter-stream-channels</a>)
+                            um damit ein paar toppics in Echtzeit von Twitter anzuzeigen.
+                        </p>
+                        <p>
+                            Warum das ganze ? Aus Spass an der Freud, Interesse an node.js und der Anbindung von Twitter als "live Datenquelle".
+                        </p>
+
+
+                    </div>
                 </div>
+
             </section>
+            <a class="exit-off-canvas"></a>
 
-
-        </nav>
-
-        <aside class="left-off-canvas-menu">
-            <ul class="off-canvas-list">
-                <li id="home"><a href="#Home">Home</a></li>
-                <li id="about"><a href="#About">About</a></li>
-                <li id="dev"><a href="http://www.rttweets.gate107.com/dev.html">dev msgs</a></li>
-                <li id="twd"><a href="http://www.rttweets.gate107.com/twdbeirtl2.html">TWDbeiRTL2</a></li>
-                <li id="siroop"><a href="http://www.rttweets.gate107.com/siroop.html">siroop</a></li>
-            </ul>
-        </aside>
-
-        <section>
-
-
-
-            <!-- main content -->
-            <div class="row">
-                <div id="homepage" class="small-12 large-12 columns">
-
-                    <ul id="messages" class="small-block-grid-1 medium-block-grid-2 large-block-grid-3"></ul>
-
-                </div>
-                <div id="aboutpage" class="small-12 large-12 columns hidediv">
-                    <p>
-                        Das ist nur ein einfacher Prototyp mit node.js und twitter unter Einbindung
-                        des twitter-stream-channels moduls (<a href="https://github.com/topheman/twitter-stream-channels">https://github.com/topheman/twitter-stream-channels</a>) um damit ein paar toppics in Echtzeit von Twitter anzuzeigen.
-                    </p>
-                    <p>
-                        Warum das ganze ? Aus Spass an der Freud, Interesse an node.js und der Anbindung von Twitter als "live Datenquelle".
-                    </p>
-
-
-                </div>
-            </div>
-
-        </section>
-        <a class="exit-off-canvas"></a>
-
+        </div>
     </div>
-</div>
 
 
 
@@ -83,53 +87,53 @@
 
 
 
-<script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="js/foundation.min.js"></script>
-<script>
+    <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+        $(document).foundation({
+            offcanvas: {
+                // Sets method in which offcanvas opens.
+                // [ move | overlap_single | overlap ]
+                open_method: 'move',
+                // Should the menu close when a menu link is clicked?
+                // [ true | false ]
+                close_on_click: true
+            }
+        });
 
-    $(document).foundation({
-        offcanvas : {
-            // Sets method in which offcanvas opens.
-            // [ move | overlap_single | overlap ]
-            open_method: 'move',
-            // Should the menu close when a menu link is clicked?
-            // [ true | false ]
-            close_on_click : true
-        }
-    });
 
+        window.onerror = function() {
+            $('#status').addClass("statusred");
+            $('#messages').prepend('<li id="servererror">SERVER OFFLINE?!?!</li>');
+        };
+        $('a.left-off-canvas-toggle').click(function() {
+            $('.inner-wrap').css('min-height', $(window).height() + 'px');
+        });
 
-    window.onerror=function(){
-        $('#status').addClass("statusred");
-        $('#messages').prepend('<li id="servererror">SERVER OFFLINE?!?!</li>');
-    };
-    $('a.left-off-canvas-toggle').click(function() {
-        $('.inner-wrap').css('min-height', $(window).height() + 'px');
-    });
+        $('#about').click(function() {
+            $('#aboutpage').addClass("showdiv");
+            $('#homepage').addClass("hidediv");
+        });
+        $('#home').click(function() {
+            $('#aboutpage').removeClass("showdiv");
+            $('#homepage').removeClass("hidediv");
+        });
 
-    $('#about').click(function(){
-        $('#aboutpage').addClass("showdiv");
-        $('#homepage').addClass("hidediv");
-    });
-    $('#home').click(function(){
-        $('#aboutpage').removeClass("showdiv");
-        $('#homepage').removeClass("hidediv");
-    });
+        var socket = io('http://www.rttweets.gate107.com:8008');
 
-    var socket = io('http://www.rttweets.gate107.com:8008');
+        socket.on('disconnect', function() {
+            $('#messages').prepend('<li id="servererror">SERVER OFFLINE?!?!</li>');
+            $('#status').addClass("statusred");
+        });
 
-    socket.on('disconnect', function(){
-        $('#messages').prepend('<li id="servererror">SERVER OFFLINE?!?!</li>');
-        $('#status').addClass("statusred");
-    });
+        socket.on('twd', function(data) {
+            $('<li><figure><a href="' + data.tweetlink + '" target="_blank"><img src="' + data.picture + '"><figcaption>@' + data.user + ':' + data.tweettext + '</figcaption></a></figure></li>').hide().prependTo('#messages').fadeIn(3000);
 
-    socket.on('twd', function (data) {
-        $('<li><figure><a href="'+data.tweetlink+'" target="_blank"><img src="'+data.picture+'" alt="wow selfie picture from twitter" ><figcaption>@'+data.user+':'+data.tweettext+'</figcaption></a></figure></li>').hide().prependTo('#messages').fadeIn(3000);
+            //console.log(data);
 
-        //console.log(data);
-
-    });
-</script>
+        });
+    </script>
 </body>
+
 </html>
